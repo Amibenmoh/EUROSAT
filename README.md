@@ -1,2 +1,4 @@
 # EUROSAT
-Un projet d’analyse d’images satellites en Deep Learning vise à exploiter des réseaux de neurones pour extraire automatiquement des informations pertinentes à partir de données spatiales.
+🔗 Télécharger le modèle
+Le fichier du modèle entraîné (model_eurosat.h5) est disponible ici : https://drive.google.com/file/d/1ZS1CIbWrImNJB44tqPe4j31UfSCcx3Dz/view?usp=sharing
+
