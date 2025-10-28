@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛰️ EuroSAT - Satellite Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space-dark': '#0B1426',
+                        'space-blue': '#1E3A8A',
+                        'space-light': '#3B82F6',
+                        'satellite-silver': '#E5E7EB',
+                        'orbital-cyan': '#06B6D4',
+                        'cosmic-purple': '#7C3AED',
+                        'stellar-gold': '#F59E0B',
+                        'nebula-pink': '#EC4899'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'space-pattern': "radial-gradient(circle at 25% 25%, #1E3A8A 0%, transparent 50%), radial-gradient(circle at 75% 75%, #7C3AED 0%, transparent 50%)",
+                        'satellite-gradient': 'linear-gradient(135deg, #0B1426 0%, #1E3A8A 50%, #7C3AED 100%)',
+                        'orbital-motion': 'conic-gradient(from 0deg at 50% 50%, #06B6D4, #3B82F6, #7C3AED, #EC4899, #06B6D4)'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'orbit': 'orbit 20s linear infinite',
+                        'satellite-drift': 'satellite-drift 15s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            to { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.3); }
+        }
+        
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes satellite-drift {
+            0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+            25% { transform: translateX(10px) translateY(-5px) rotate(1deg); }
+            50% { transform: translateX(-5px) translateY(-10px) rotate(-1deg); }
+            75% { transform: translateX(-10px) translateY(5px) rotate(1deg); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .satellite-glow {
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+        }
+        
+        .cosmic-text {
+            background: linear-gradient(45deg, #06B6D4, #3B82F6, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-particles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(59, 130, 246, 0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(124, 58, 237, 0.3), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(6, 182, 212, 0.3), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(245, 158, 11, 0.3), transparent);
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: satellite-drift 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-space-dark text-white min-h-screen bg-space-pattern font-inter floating-particles relative overflow-x-hidden">
+    
+    <!-- Satellite Background Animation -->
+    <div class="fixed top-10 right-10 text-orbital-cyan text-4xl animate-satellite-drift satellite-glow opacity-20 pointer-events-none">
+        <i class="fas fa-satellite"></i>
+    </div>
+    <div class="fixed bottom-20 left-10 text-cosmic-purple text-3xl animate-float satellite-glow opacity-20 pointer-events-none">
+        <i class="fas fa-globe-americas"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-card shadow-2xl relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center group">
+                        <div class="relative">
+                            <i class="fas fa-satellite text-orbital-cyan text-3xl mr-4 animate-pulse-glow satellite-glow"></i>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-stellar-gold rounded-full animate-pulse"></div>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-orbitron font-bold cosmic-text">EuroSAT</span>
+                            <p class="text-xs text-orbital-cyan font-inter tracking-wider">SATELLITE INTELLIGENCE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2" id="navbar-menu">
+                    <!-- Menu items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Login Page -->
+        <div id="login-page" class="page hidden">
+            <div class="min-h-screen flex items-center justify-center">
+                <div class="max-w-md w-full space-y-8">
+                    <div class="text-center">
+                        <div class="relative inline-block">
+                            <i class="fas fa-satellite text-orbital-cyan text-8xl mb-6 animate-float satellite-glow"></i>
+                            <div class="absolute top-0 right-0 w-6 h-6 bg-orbital-motion rounded-full animate-orbit"></div>
+                        </div>
+                        <h2 class="text-4xl font-orbitron font-bold cosmic-text mb-2">
+                            MISSION CONTROL
+                        </h2>
+                        <p class="text-satellite-silver font-inter tracking-wide">
+                            Authentification sécurisée • Classification IA avancée
+                        </p>
+                        <div class="mt-4 h-1 w-20 bg-gradient-to-r from-orbital-cyan to-cosmic-purple mx-auto rounded-full"></div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8 animate-pulse-glow">
+                        <form class="space-y-6" onsubmit="handleLogin(event)">
+                            <div class="space-y-2">
+                                <label for="username" class="block text-sm font-medium text-orbital-cyan font-orbitron tracking-wider">
+                                    IDENTIFIANT AGENT
+                                </label>
+                                <input id="username" name="username" type="text" required 
+                                       class="w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white placeholder-satellite-silver/50 text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan focus:border-transparent transition-all duration-300"
+                                       placeholder="Votre nom d'utilisateur">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="password" class="block text-sm font-medium text-orbital-cyan font-orbitron tracking-wider">
+                                    CODE D'ACCÈS
+                                </label>
+                                <input id="password" name="password" type="password" required 
+                                       class="w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white placeholder-satellite-silver/50 text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan focus:border-transparent transition-all duration-300"
+                                       placeholder="••••••••">
+                            </div>
+                            <div class="pt-4">
+                                <button type="submit" 
+                                        class="w-full bg-satellite-gradient hover:bg-orbital-motion text-white font-orbitron font-bold py-4 px-6 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl animate-pulse-glow">
+                                    <i class="fas fa-rocket mr-3"></i>
+                                    INITIER CONNEXION
+                                </button>
+                            </div>
+                            <div class="flex justify-between text-center pt-4">
+                                <button type="button" onclick="showRegister()" 
+                                        class="text-orbital-cyan hover:text-white text-sm font-orbitron tracking-wider transition-colors duration-300">
+                                    CRÉER PROFIL AGENT
+                                </button>
+                                <button type="button" onclick="showForgotPassword()" 
+                                        class="text-nebula-pink hover:text-white text-sm font-orbitron tracking-wider transition-colors duration-300">
+                                    RÉCUPÉRATION CODE
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register-page" class="page hidden">
+            <div class="min-h-screen flex items-center justify-center">
+                <div class="max-w-md w-full space-y-8">
+                    <div class="text-center">
+                        <i class="fas fa-user-astronaut text-cosmic-purple text-7xl mb-4 animate-float satellite-glow"></i>
+                        <h2 class="text-3xl font-orbitron font-bold cosmic-text">
+                            NOUVEAU AGENT
+                        </h2>
+                        <p class="text-satellite-silver">Intégration au programme EuroSAT</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <form class="space-y-6" onsubmit="handleRegister(event)">
+                            <div>
+                                <label for="reg-username" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    IDENTIFIANT
+                                </label>
+                                <input id="reg-username" name="username" type="text" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <label for="reg-email" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    GMAIL (exemple : sattelite@gmail.com)
+                                </label>
+                                <input id="reg-email" name="email" type="email" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <label for="reg-password" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    CODE SÉCURISÉ
+                                </label>
+                                <input id="reg-password" name="password" type="password" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <label for="confirm-password" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    CONFIRMATION
+                                </label>
+                                <input id="confirm-password" name="confirm_password" type="password" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <button type="submit" 
+                                        class="w-full bg-satellite-gradient text-white font-orbitron font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105">
+                                        <i class="fas fa-user-plus mr-2"></i>
+                                        ACTIVER AGENT
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" onclick="showLogin()" 
+                                        class="text-orbital-cyan hover:text-white text-sm font-orbitron">
+                                    RETOUR MISSION CONTROL
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Page -->
+        <div id="forgot-password-page" class="page hidden">
+            <div class="min-h-screen flex items-center justify-center">
+                <div class="max-w-md w-full space-y-8">
+                    <div class="text-center">
+                        <i class="fas fa-shield-alt text-nebula-pink text-7xl mb-4 animate-pulse satellite-glow"></i>
+                        <h2 class="text-3xl font-orbitron font-bold cosmic-text">
+                            RÉINITIALISATION SÉCURISÉE
+                        </h2>
+                        <p class="text-satellite-silver">Récupération code d'accès agent</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <form class="space-y-6" onsubmit="handleResetPasswordByUsername(event)">
+                            <div>
+                                <label for="reset-username" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    IDENTIFIANT AGENT
+                                </label>
+                                <input id="reset-username" name="username" type="text" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <label for="reset-new-password" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    NOUVEAU CODE
+                                </label>
+                                <input id="reset-new-password" name="new_password" type="password" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <label for="reset-confirm-password" class="block text-sm font-medium text-orbital-cyan font-orbitron">
+                                    CONFIRMATION CODE
+                                </label>
+                                <input id="reset-confirm-password" name="confirm_password" type="password" required 
+                                       class="mt-1 w-full px-4 py-3 bg-space-blue/50 border border-orbital-cyan/30 rounded-xl text-white text-base focus:outline-none focus:ring-2 focus:ring-orbital-cyan">
+                            </div>
+                            <div>
+                                <button type="submit" 
+                                        class="w-full bg-satellite-gradient text-white font-orbitron font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105">
+                                        <i class="fas fa-sync-alt mr-2"></i>
+                                        RÉINITIALISER
+                                </button>
+                            </div>
+                            <div id="reset-result" class="hidden glass-card rounded-lg p-4 text-stellar-gold border border-stellar-gold/30"></div>
+                            <div class="text-center">
+                                <button type="button" onclick="showLogin()" 
+                                        class="text-orbital-cyan hover:text-white text-sm font-orbitron">
+                                    RETOUR MISSION CONTROL
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="page hidden">
+            <div class="space-y-8">
+                <!-- Welcome Header -->
+                <div class="glass-card rounded-2xl p-8 bg-satellite-gradient relative overflow-hidden">
+                    <div class="absolute top-0 right-0 text-9xl text-white/10 animate-satellite-drift">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h1 class="text-4xl font-orbitron font-bold mb-4 cosmic-text">
+                            <i class="fas fa-rocket mr-4 text-stellar-gold"></i>CENTRE DE CONTRÔLE
+                        </h1>
+                        <p class="text-xl text-satellite-silver">Mission en cours : <span id="welcome-username" class="font-orbitron text-orbital-cyan"></span></p>
+                        <p class="text-satellite-silver/80">Système d'analyse satellite • IA de classification avancée • Surveillance globale active</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group animate-pulse-glow" onclick="showPredict()">
+                        <div class="flex items-center">
+                            <div class="p-4 rounded-full bg-orbital-cyan/20 group-hover:bg-orbital-cyan/40 transition-colors">
+                                <i class="fas fa-upload text-2xl text-orbital-cyan satellite-glow"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-orbitron font-semibold text-white">SCAN SATELLITE</h3>
+                                <p class="text-satellite-silver/80 text-sm">Nouvelle analyse</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="showHistory()">
+                        <div class="flex items-center">
+                            <div class="p-4 rounded-full bg-cosmic-purple/20 group-hover:bg-cosmic-purple/40 transition-colors">
+                                <i class="fas fa-database text-2xl text-cosmic-purple satellite-glow"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-orbitron font-semibold text-white">ARCHIVES</h3>
+                                <p class="text-satellite-silver/80 text-sm">Données mission</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group" onclick="showClasses()">
+                        <div class="flex items-center">
+                            <div class="p-4 rounded-full bg-stellar-gold/20 group-hover:bg-stellar-gold/40 transition-colors">
+                                <i class="fas fa-map-marked-alt text-2xl text-stellar-gold satellite-glow"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-orbitron font-semibold text-white">CARTOGRAPHIE</h3>
+                                <p class="text-satellite-silver/80 text-sm">Types terrain</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 group">
+                        <div class="flex items-center">
+                            <div class="p-4 rounded-full bg-nebula-pink/20 group-hover:bg-nebula-pink/40 transition-colors">
+                                <i class="fas fa-chart-line text-2xl text-nebula-pink satellite-glow"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-orbitron font-semibold text-white">STATISTIQUES</h3>
+                                <p class="text-satellite-silver/80 text-sm"><span id="stats-count" class="text-orbital-cyan font-orbitron">0</span> analyses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h2 class="text-2xl font-orbitron font-bold text-white mb-6">
+                        <i class="fas fa-satellite text-orbital-cyan mr-3"></i>ACTIVITÉ RÉCENTE
+                    </h2>
+                    <div id="recent-activity">
+                        <div class="text-center py-12">
+                            <div class="animate-pulse">
+                                <i class="fas fa-spinner text-4xl text-orbital-cyan animate-spin"></i>
+                                <p class="text-satellite-silver mt-4">Synchronisation des données...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Predict Page -->
+        <div id="predict-page" class="page hidden">
+            <div class="space-y-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <h1 class="text-3xl font-orbitron font-bold text-white mb-8">
+                        <i class="fas fa-satellite text-orbital-cyan mr-4 animate-float satellite-glow"></i>ANALYSE SATELLITE
+                    </h1>
+                    
+                    <div class="space-y-8">
+                        <!-- Upload Area -->
+                        <div class="border-2 border-dashed border-orbital-cyan/30 rounded-2xl p-12 text-center hover:border-orbital-cyan/60 transition-all duration-300 hover:bg-orbital-cyan/5 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-orbital-motion opacity-5 animate-pulse"></div>
+                            <input type="file" id="image-upload" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                            <div id="upload-area" class="relative z-10">
+                                <i class="fas fa-cloud-upload-alt text-6xl text-orbital-cyan mb-6 animate-float satellite-glow"></i>
+                                <p class="text-xl text-white mb-4 font-orbitron">TÉLÉCHARGEMENT DONNÉES SATELLITE</p>
+                                <button onclick="document.getElementById('image-upload').click()" 
+                                        class="bg-satellite-gradient hover:scale-105 text-white font-orbitron font-bold px-8 py-4 rounded-xl transition-all duration-300 animate-pulse-glow">
+                                    <i class="fas fa-folder-open mr-2"></i>SÉLECTIONNER IMAGE
+                                </button>
+                                <p class="text-sm text-satellite-silver/60 mt-4 font-orbitron tracking-wider">FORMATS: PNG, JPG • TAILLE MAX: 16MB</p>
+                            </div>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div id="image-preview" class="hidden">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div class="space-y-6">
+                                    <h3 class="text-xl font-orbitron font-semibold text-orbital-cyan">IMAGE SATELLITE CHARGÉE</h3>
+                                    <div class="glass-card rounded-xl p-4">
+                                        <img id="preview-image" class="w-full rounded-lg shadow-2xl">
+                                    </div>
+                                    <button onclick="analyzeImage()" 
+                                            class="w-full bg-satellite-gradient text-white font-orbitron font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 animate-pulse-glow">
+                                        <i class="fas fa-brain mr-3"></i>INITIER ANALYSE IA
+                                    </button>
+                                </div>
+                                <div id="analysis-results" class="hidden">
+                                    <h3 class="text-xl font-orbitron font-semibold text-orbital-cyan mb-6">RÉSULTATS CLASSIFICATION</h3>
+                                    <div id="prediction-card" class="glass-card rounded-xl p-6">
+                                        <!-- Results will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div id="history-page" class="page hidden">
+            <div class="space-y-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <h1 class="text-3xl font-orbitron font-bold text-white mb-8">
+                        <i class="fas fa-database text-cosmic-purple mr-4 satellite-glow"></i>ARCHIVES MISSION
+                    </h1>
+                    
+                    <div id="history-content">
+                        <div class="text-center py-16">
+                            <i class="fas fa-satellite-dish text-6xl text-orbital-cyan animate-pulse satellite-glow mb-6"></i>
+                            <p class="text-satellite-silver font-orbitron text-lg">Chargement des archives...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Classes Page -->
+        <div id="classes-page" class="page hidden">
+            <div class="space-y-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <h1 class="text-3xl font-orbitron font-bold text-white mb-8">
+                        <i class="fas fa-map-marked-alt text-stellar-gold mr-4 satellite-glow"></i>CLASSIFICATION TERRAIN
+                    </h1>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-green-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-green-400 text-lg mb-2">ANNUALCROP</h3>
+                            <p class="text-satellite-silver text-sm">🌱 Cultures annuelles : Zones agricoles à cycle court (blé, maïs, orge). Renouvellement saisonnier détectable par satellite.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-emerald-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-emerald-400 text-lg mb-2">FOREST</h3>
+                            <p class="text-satellite-silver text-sm">🌳 Formations forestières : Couverture arborée dense. Ecosystèmes critiques pour régulation climatique.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-lime-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-lime-400 text-lg mb-2">HERBACEOUS</h3>
+                            <p class="text-satellite-silver text-sm">🌿 Végétation herbacée : Prairies naturelles, landes. Signature spectrale caractéristique.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-gray-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-gray-400 text-lg mb-2">HIGHWAY</h3>
+                            <p class="text-satellite-silver text-sm">🛣 Infrastructure routière : Réseau de transport. Signature thermique et géométrique distinctive.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-orange-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-orange-400 text-lg mb-2">INDUSTRIAL</h3>
+                            <p class="text-satellite-silver text-sm">🏭 Zones industrielles : Complexes manufacturiers. Détection par émissions thermiques et structures métalliques.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-yellow-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-yellow-400 text-lg mb-2">PASTURE</h3>
+                            <p class="text-satellite-silver text-sm">🐄 Pâturages : Zones de pâturage extensif. Activité agricole détectable par analyse multispectrale.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-teal-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-teal-400 text-lg mb-2">PERMANENT CROP</h3>
+                            <p class="text-satellite-silver text-sm">🍇 Cultures pérennes : Vergers, vignobles. Structures permanentes avec cycles saisonniers distincts.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-purple-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-purple-400 text-lg mb-2">RESIDENTIAL</h3>
+                            <p class="text-satellite-silver text-sm">🏠 Zones résidentielles : Habitats humains. Patterns urbains caractéristiques et îlots de chaleur.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-blue-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-blue-400 text-lg mb-2">RIVER</h3>
+                            <p class="text-satellite-silver text-sm">🌊 Cours d'eau : Réseaux hydrographiques actifs. Morphologie dynamique surveillée par radar.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 border-l-4 border-cyan-400 hover:scale-105 transition-transform">
+                            <h3 class="font-orbitron font-bold text-cyan-400 text-lg mb-2">SEA LAKE</h3>
+                            <p class="text-satellite-silver text-sm">🌊 Étendues aquatiques : Masses d'eau statiques. Surveillance bathymétrique et qualité hydrique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="fixed inset-0 bg-space-dark/90 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="glass-card p-8 rounded-2xl shadow-2xl">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <div class="animate-spin rounded-full h-12 w-12 border-4 border-orbital-cyan/30 border-t-orbital-cyan"></div>
+                    <i class="fas fa-satellite absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-orbital-cyan animate-pulse"></i>
+                </div>
+                <div>
+                    <p class="text-white font-orbitron font-bold text-lg">ANALYSE EN COURS</p>
+                    <p class="text-satellite-silver text-sm">Traitement données satellite...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Application state
+        let currentUser = null;
+        let predictions = [];
+
+        // API Base URL
+        const API_BASE = '';
+
+        // Toast notification function
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const colors = {
+                success: 'bg-green-500 border-green-400',
+                error: 'bg-red-500 border-red-400',
+                warning: 'bg-yellow-500 border-yellow-400',
+                info: 'bg-space-blue border-orbital-cyan'
+            };
+            const icons = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-triangle',
+                warning: 'fas fa-exclamation-circle',
+                info: 'fas fa-info-circle'
+            };
+            
+            toast.className = `glass-card ${colors[type]} text-white px-6 py-4 rounded-xl shadow-2xl mb-3 transform transition-all duration-500 translate-x-full border-l-4`;
+            toast.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="${icons[type]} text-lg satellite-glow"></i>
+                        <span class="font-orbitron">${message}</span>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white/80 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => {
+                toast.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+                setTimeout(() => toast.remove(), 500);
+            }, 5000);
+        }
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show target page
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            // Update navbar
+            updateNavbar();
+        }
+
+        function updateNavbar() {
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            if (currentUser) {
+                navbarMenu.innerHTML = `
+                    <button onclick="showDashboard()" class="text-white hover:text-orbital-cyan px-4 py-2 rounded-lg text-sm font-orbitron tracking-wider transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-home mr-2"></i>CONTRÔLE
+                    </button>
+                    <button onclick="showPredict()" class="text-white hover:text-orbital-cyan px-4 py-2 rounded-lg text-sm font-orbitron tracking-wider transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-satellite mr-2"></i>SCAN
+                    </button>
+                    <button onclick="showHistory()" class="text-white hover:text-orbital-cyan px-4 py-2 rounded-lg text-sm font-orbitron tracking-wider transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-database mr-2"></i>ARCHIVES
+                    </button>
+                    <button onclick="showClasses()" class="text-white hover:text-orbital-cyan px-4 py-2 rounded-lg text-sm font-orbitron tracking-wider transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-map mr-2"></i>CARTES
+                    </button>
+                    <button onclick="logout()" class="text-white hover:text-nebula-pink px-4 py-2 rounded-lg text-sm font-orbitron tracking-wider transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-power-off mr-2"></i>DÉCONNEXION
+                    </button>
+                `;
+            } else {
+                navbarMenu.innerHTML = '';
+            }
+        }
+
+        // Authentication functions
+        async function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    currentUser = data.user;
+                    document.getElementById('welcome-username').textContent = currentUser.username;
+                    showToast('CONNEXION ÉTABLIE • ACCÈS AUTORISÉ', 'success');
+                    showDashboard();
+                } else {
+                    showToast('ACCÈS REFUSÉ • ' + (data.error || 'AUTHENTIFICATION ÉCHOUÉE'), 'error');
+                }
+            } catch (error) {
+                showToast('ERREUR COMMUNICATION • SERVEUR INACCESSIBLE', 'error');
+            }
+        }
+
+        async function handleRegister(event) {
+            event.preventDefault();
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+    
+            if (password !== confirmPassword) {
+                showToast('ERREUR • CODES D\'ACCÈS NON CONCORDANTS', 'error');
+                return;
+            }
+    
+            if (password.length < 6) {
+                showToast('SÉCURITÉ • CODE MINIMUM 6 CARACTÈRES', 'warning');
+                return;
+            }
+    
+            // Validation basique de l'email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showToast('ERREUR • FORMAT COMMUNICATION INVALIDE', 'error');
+                return;
+            }
+    
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+        
+                const data = await response.json();
+        
+                if (response.ok) {
+                    showToast('AGENT ACTIVÉ • PROFIL CRÉÉ AVEC SUCCÈS', 'success');
+                    showLogin();
+                } else {
+                    showToast('ÉCHEC ACTIVATION • ' + (data.error || 'ERREUR CRÉATION PROFIL'), 'error');
+                }
+            } catch (error) {
+                showToast('ERREUR RÉSEAU • SERVEUR INACCESSIBLE', 'error');
+            }
+        }
+
+        async function handleResetPasswordByUsername(event) {
+            event.preventDefault();
+            const username = document.getElementById('reset-username').value;
+            const newPassword = document.getElementById('reset-new-password').value;
+            const confirmPassword = document.getElementById('reset-confirm-password').value;
+            
+            if (newPassword !== confirmPassword) {
+                showToast('ERREUR • CODES NON CONCORDANTS', 'error');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showToast('SÉCURITÉ • CODE MINIMUM 6 CARACTÈRES', 'warning');
+                return;
+            }
+            
+            showLoading(true);
+            
+            try {
+                const response = await fetch('/api/reset-password-by-username', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, new_password: newPassword })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showToast('RÉINITIALISATION RÉUSSIE', 'success');
+                    const resultDiv = document.getElementById('reset-result');
+                    resultDiv.innerHTML = `
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-check-circle text-2xl text-stellar-gold satellite-glow"></i>
+                            <div>
+                                <div class="font-orbitron font-bold text-lg">CODE RÉINITIALISÉ</div>
+                                <div class="mt-2 text-sm text-satellite-silver">
+                                    Votre nouveau code d'accès est actif. Redirection vers Mission Control...
+                                </div>
+                            </div>
+                        </div>`;
+                    resultDiv.classList.remove('hidden');
+                    
+                    // Redirection vers la page de connexion après 3 secondes
+                    setTimeout(() => {
+                        showLogin();
+                    }, 3000);
+                } else {
+                    showToast('ÉCHEC RÉINITIALISATION • ' + (data.error || "AGENT INTROUVABLE"), 'error');
+                }
+            } catch (error) {
+                showToast('ERREUR RÉSEAU • SERVEUR INACCESSIBLE', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function logout() {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+                currentUser = null;
+                predictions = [];
+                showToast('SESSION TERMINÉE • DÉCONNEXION SÉCURISÉE', 'info');
+                showLogin();
+            } catch (error) {
+                showToast('ERREUR DÉCONNEXION', 'error');
+            }
+        }
+
+        // Page show functions
+        function showLogin() {
+            showPage('login-page');
+        }
+
+        function showRegister() {
+            showPage('register-page');
+        }
+
+        function showDashboard() {
+            showPage('dashboard-page');
+            updateDashboard();
+        }
+
+        function showPredict() {
+            showPage('predict-page');
+            resetPredictPage();
+        }
+
+        function showHistory() {
+            showPage('history-page');
+            updateHistory();
+        }
+
+        function showClasses() {
+            showPage('classes-page');
+        }
+
+        function showForgotPassword() {
+            showPage('forgot-password-page');
+            // Reset the form
+            document.getElementById('reset-username').value = '';
+            document.getElementById('reset-new-password').value = '';
+            document.getElementById('reset-confirm-password').value = '';
+            document.getElementById('reset-result').classList.add('hidden');
+        }
+
+        // Loading function
+        function showLoading(show) {
+            const overlay = document.getElementById('loading-overlay');
+            if (overlay) {
+                overlay.classList.toggle('hidden', !show);
+            }
+        }
+
+        // Dashboard functions
+        async function updateDashboard() {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('stats-count').textContent = data.total_predictions;
+                    
+                    // Load recent activity
+                    const historyResponse = await fetch('/api/history');
+                    const historyData = await historyResponse.json();
+                    
+                    const recentActivity = document.getElementById('recent-activity');
+                    if (!historyData || historyData.length === 0) {
+                        recentActivity.innerHTML = `
+                            <div class="text-center py-16">
+                                <i class="fas fa-satellite-dish text-6xl text-orbital-cyan/50 mb-6"></i>
+                                <p class="text-satellite-silver font-orbitron text-lg">AUCUNE MISSION RÉCENTE</p>
+                                <p class="text-satellite-silver/60 text-sm mt-2">Initiez votre première analyse satellite</p>
+                            </div>`;
+                    } else {
+                        const recentItems = historyData.slice(0, 5);
+                        recentActivity.innerHTML = recentItems.map(pred => `
+                            <div class="flex items-center justify-between p-4 glass-card rounded-xl mb-3 hover:bg-white/5 transition-colors">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-orbital-cyan/20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-satellite text-orbital-cyan satellite-glow"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-orbitron font-bold text-white">${pred.predicted_class}</p>
+                                        <p class="text-sm text-satellite-silver/80">${pred.confidence}% confiance • ${pred.image_name}</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-orbital-cyan font-orbitron">${new Date(pred.timestamp).toLocaleString('fr-FR')}</span>
+                            </div>
+                        `).join('');
+                    }
+                }
+            } catch (error) {
+                showToast('ERREUR SYNCHRONISATION DONNÉES', 'error');
+            }
+        }
+
+        // Prediction functions
+        function resetPredictPage() {
+            document.getElementById('image-preview').classList.add('hidden');
+            document.getElementById('analysis-results').classList.add('hidden');
+            document.getElementById('image-upload').value = '';
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview-image').src = e.target.result;
+                    document.getElementById('image-preview').classList.remove('hidden');
+                    document.getElementById('analysis-results').classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function analyzeImage() {
+            const fileInput = document.getElementById('image-upload');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showToast('ERREUR • AUCUNE IMAGE SÉLECTIONNÉE', 'error');
+                return;
+            }
+            
+            showLoading(true);
+            
+            const formData = new FormData();
+            formData.append('image', file);
+            
+            try {
+                const response = await fetch('/api/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    displayPredictionResults(data);
+                    showToast('ANALYSE TERMINÉE • CLASSIFICATION RÉUSSIE', 'success');
+                } else {
+                    showToast('ÉCHEC ANALYSE • ' + (data.error || 'ERREUR TRAITEMENT'), 'error');
+                }
+            } catch (error) {
+                showToast('ERREUR COMMUNICATION • SERVEUR INACCESSIBLE', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function displayPredictionResults(prediction) {
+            const resultsCard = document.getElementById('prediction-card');
+            resultsCard.innerHTML = `
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-2xl font-orbitron font-bold cosmic-text">
+                            ${prediction.class}
+                        </h4>
+                        <div class="bg-satellite-gradient px-4 py-2 rounded-full">
+                            <span class="text-white font-orbitron font-bold">${prediction.confidence}%</span>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg border border-orbital-cyan/30">
+                        <p class="text-satellite-silver leading-relaxed">${prediction.description}</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm font-orbitron text-orbital-cyan">
+                            <span>NIVEAU DE CONFIANCE</span>
+                            <span>${prediction.confidence}%</span>
+                        </div>
+                        <div class="w-full bg-space-blue/50 rounded-full h-3 overflow-hidden">
+                            <div class="bg-gradient-to-r from-orbital-cyan to-cosmic-purple h-3 rounded-full transition-all duration-1000 satellite-glow" 
+                                 style="width: ${prediction.confidence}%"></div>
+                        </div>
+                    </div>
+                    <div class="text-center pt-4">
+                        <p class="text-xs text-satellite-silver/60 font-orbitron tracking-wider">
+                            ANALYSE EFFECTUÉE • ${new Date().toLocaleString('fr-FR')}
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('analysis-results').classList.remove('hidden');
+        }
+
+        // History functions
+        async function updateHistory() {
+            try {
+                const response = await fetch('/api/history');
+                const data = await response.json();
+                
+                const historyContent = document.getElementById('history-content');
+                
+                if (!data || data.length === 0) {
+                    historyContent.innerHTML = `
+                        <div class="text-center py-20">
+                            <i class="fas fa-satellite-dish text-8xl text-orbital-cyan/30 mb-8 animate-pulse"></i>
+                            <p class="text-xl text-satellite-silver font-orbitron mb-4">ARCHIVES VIDES</p>
+                            <p class="text-satellite-silver/60 mb-8">Aucune mission d'analyse enregistrée</p>
+                            <button onclick="showPredict()" 
+                                    class="bg-satellite-gradient text-white font-orbitron font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-satellite mr-2"></i>INITIER PREMIÈRE ANALYSE
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    historyContent.innerHTML = `
+                        <div class="space-y-4">
+                            ${data.map((pred, index) => `
+                                <div class="glass-card p-6 rounded-xl border border-orbital-cyan/20 hover:border-orbital-cyan/40 transition-all duration-300">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-12 h-12 bg-cosmic-purple/20 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-map-marked-alt text-cosmic-purple satellite-glow"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-orbitron font-bold text-white text-lg">${pred.predicted_class}</h3>
+                                                <p class="text-sm text-satellite-silver font-orbitron">${pred.image_name}</p>
+                                                <p class="text-xs text-orbital-cyan mt-1">${new Date(pred.timestamp).toLocaleString('fr-FR')}</p>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="bg-satellite-gradient px-4 py-2 rounded-full mb-2">
+                                                <span class="text-white font-orbitron font-bold">${pred.confidence}%</span>
+                                            </div>
+                                            <p class="text-xs text-satellite-silver/60">CONFIANCE</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                showToast('ERREUR CHARGEMENT ARCHIVES', 'error');
+            }
+        }
+
+        // Check for reset token in URL on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is already logged in
+            checkAuth();
+        });
+
+        async function checkAuth() {
+            try {
+                // Try to get user info from session
+                const response = await fetch('/api/user-info');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.authenticated) {
+                        currentUser = data.user;
+                        document.getElementById('welcome-username').textContent = currentUser.username;
+                        showDashboard();
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.log('Not authenticated');
+            }
+            
+            showLogin();
+        }
+
+        // Drag and drop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.querySelector('#upload-area').parentElement;
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight(e) {
+                uploadArea.classList.add('border-orbital-cyan', 'bg-orbital-cyan/10');
+            }
+            
+            function unhighlight(e) {
+                uploadArea.classList.remove('border-orbital-cyan', 'bg-orbital-cyan/10');
+            }
+            
+            uploadArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length > 0) {
+                    const fileInput = document.getElementById('image-upload');
+                    fileInput.files = files;
+                    handleImageUpload({ target: fileInput });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
